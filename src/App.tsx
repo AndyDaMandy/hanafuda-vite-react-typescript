@@ -6,18 +6,12 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>Hanafuda</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
         <h1 className="text-3xl font-bold underline">
             Hello world!
         </h1>
@@ -26,11 +20,50 @@ function App() {
 }
 
 function Board() {
+    //board will consist of an array with two rows of 4.
+    //0 means empty, so the board starts empty.
+    const BOARD = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+    return (
+        <div id="board">
+            <div id="row-1">
+            <CardSlot value={BOARD[0]}></CardSlot>
+            </div>
+            <div id="row-2">
+
+            </div>
+        </div>
+    )
+}
+function CardSlot({props}){
+    return (
+        <div>
+            {props}
+        </div>
+    )
+}
+
+function Hand() {
 
 }
 
 function Card() {
 
+    return (
+        <div>
+
+        </div>
+    )
+}
+
+function Rules(){
+    return (
+        <div>
+            <p>Rules information goes here.</p>
+        </div>
+    )
 }
 
 function Game() {

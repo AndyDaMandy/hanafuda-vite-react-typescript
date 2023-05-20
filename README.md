@@ -1,0 +1,1 @@
+This is going to be a simple hanafuda game built with react and typescript.
