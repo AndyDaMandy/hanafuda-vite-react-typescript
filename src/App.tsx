@@ -54,57 +54,63 @@ function Card() {
     //this is a JSON list of the cards.
     const CARDS = [
         {
-            "January": {
-                "cards": [
-                    {
-                        "dreg1": {
-                            "points": 1,
-                            "yaku": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    }
-                ]
+            "Month": "January",
+            "Flower": "Pine",
+            "jpMonth": "一月",
+            "jpFlower": "松",
+            "cards": {
+                "main" : {
+                    "name": "Crane",
+                    "jpName": "光",
+                    "type": "light",
+                    "image": "link_to_image"
+                },
+                "secondary" : {
+                    "name": "red poetry slip",
+                    "type": "red poetry",
+                    "jpName": "赤短冊",
+                    "image": "link_to_image"
+                },
+                "dreg1": {
+                    "type": "dreg",
+                    "jpName": "カス",
+                    "image": "link_to_image"
+                },
+                "dreg2": {
+                    "type": "dreg",
+                    "jpName": "カス",
+                    "image": "link_to_image"
+                }
             }
         },
         {
-            "February": {
-                "cards": [
-                    {
-                        "dreg1": {
-                            "points": 1,
-                            "yaku": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    },
-                    {
-                        "dreg2": {
-                            "points": 1
-                        }
-                    }
-                ]
+            "Month": "February",
+            "Flower": "Plum Blossom",
+            "jpMonth": "二月",
+            "jpFlower": "梅",
+            "cards": {
+                "main" : {
+                    "name": "Bush Warbler",
+                    "jpName": "",
+                    "type": "tane",
+                    "image": "link_to_image"
+                },
+                "secondary" : {
+                    "name": "red poetry slip",
+                    "jpName": "",
+                    "type": "red poetry",
+                    "image": "link_to_image"
+                },
+                "dreg1": {
+                    "type": "dreg",
+                    "jpName": "カス",
+                    "image": "link_to_image"
+                },
+                "dreg2": {
+                    "type": "dreg",
+                    "jpName": "カス",
+                    "image": "link_to_image"
+                }
             }
         }
         ]
