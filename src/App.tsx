@@ -38,28 +38,49 @@ function Board() {
         </div>
     )
 }
-function CardSlot({value}){
+
+type CardProps = {
+    value: number
+}
+const CardSlot: React.FunctionComponent<CardProps> = (props) =>{
+    const {value} = props;
     return (
         <div>
             {value}
         </div>
     )
 }
+type HandProps = {
+    player: string,
+    card_id: number
+}
 
-function Hand() {
-
+const Hand: React.FunctionComponent<HandProps> = (props) => {
+    const { player, card_id } = props;
+    return (
+        <div>
+            <p>{player}</p>
+            <div>
+                <ul>
+                    <li>{card_id}</li>
+                </ul>
+            </div>
+        </div>
+    )
 }
 
 function Card() {
     //this is a JSON list of the cards.
     const CARDS = [
         {
+            "id": 1,
             "Month": "January",
             "Flower": "Pine",
             "jpMonth": "一月",
             "jpFlower": "松",
             "cards": {
                 "main" : {
+                    "id": 1,
                     "name": "Crane",
                     "jpName": "光",
                     "type": "light",
@@ -91,7 +112,7 @@ function Card() {
             "cards": {
                 "main" : {
                     "name": "Bush Warbler",
-                    "jpName": "",
+                    "jpName": "blank",
                     "type": "tane",
                     "image": "link_to_image"
                 },
