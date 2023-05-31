@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import "./App.css";
 
-function App() {
+const App: React.FunctionComponent = () => {
   const [count, setCount] = useState(0)
 
   return (
@@ -12,6 +12,7 @@ function App() {
           count is {count}
         </button>
       </div>
+        <Card />
         <h1 className="text-3xl font-bold underline">
             Hello world!
         </h1>
@@ -20,7 +21,7 @@ function App() {
   )
 }
 
-function Board() {
+const Board: React.FunctionComponent = () => {
     //board will consist of an array with two rows of 5
     //0 means empty, so the board starts empty.
     const BOARD = [
@@ -30,7 +31,7 @@ function Board() {
     return (
         <div id="board">
             <div id="row-1">
-                <CardSlot value={BOARD[0]}/>
+
             </div>
             <div id="row-2">
 
@@ -40,13 +41,22 @@ function Board() {
 }
 
 type CardProps = {
-    value: number
+    cardData: {
+        id: number;
+        name: string;
+        cards: object;
+    }[];
 }
 const CardSlot: React.FunctionComponent<CardProps> = (props) =>{
-    const {value} = props;
+    const {cardData} = props;
     return (
         <div>
-            {value}
+            {/* we map the card data to the application here. */}
+            {cardData.map((card) => (
+            <li className="cardData" key={card.id}>
+                <span className="input-label">{ card.name }</span>
+            </li>
+            ))}
         </div>
     )
 }
@@ -68,14 +78,13 @@ const Hand: React.FunctionComponent<HandProps> = (props) => {
         </div>
     )
 }
-
-function Card() {
+ const Card: React.FunctionComponent = () => {
     //this is a JSON list of the cards.
     const CARDS = [
         {
             "id": 1,
-            "Month": "January",
-            "Flower": "Pine",
+            "month": "January",
+            "flower": "Pine",
             "jpMonth": "一月",
             "jpFlower": "松",
             "cards": {
@@ -105,8 +114,8 @@ function Card() {
             }
         },
         {
-            "Month": "February",
-            "Flower": "Plum Blossom",
+            "month": "February",
+            "flower": "Plum Blossom",
             "jpMonth": "二月",
             "jpFlower": "梅",
             "cards": {
@@ -137,12 +146,22 @@ function Card() {
         ]
     return (
         <div>
-
+            {CARDS.map((card) => {
+                return (
+                    <div id={card.id}>
+                        <ul>
+                            <li>{card.month}</li>
+                            <li>{card.flower}</li>
+                            <li></li>
+                        </ul>
+                    </div>
+                )
+            })}
         </div>
     )
 }
 
-function Rules(){
+const Rules: React.FunctionComponent = () => {
     return (
         <div>
             <p>Rules information goes here.</p>
@@ -150,12 +169,12 @@ function Rules(){
     )
 }
 
-function Game() {
+const Game: React.FunctionComponent = () => {
     const [playerScore, setPlayerScore] = useState(0);
     const [aiScore, setAiScore] = useState(0);
     const [round, setRound] = useState(1);
 
-    function scoring (): boolean {
+    const scoring = (): boolean => {
         if (playerScore > aiScore){
             return true;
         } else {
