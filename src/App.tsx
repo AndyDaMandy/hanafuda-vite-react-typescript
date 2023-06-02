@@ -12,11 +12,8 @@ const App: React.FunctionComponent = () => {
           count is {count}
         </button>
       </div>
-        <Card />
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
         <Game />
+        <Card />
     </>
   )
 }
@@ -44,8 +41,10 @@ type CardProps = {
     cardData: {
         id: number;
         name: string;
-        cards: object;
-    }[];
+        month: string;
+        type: string;
+
+    };
 }
 const CardSlot: React.FunctionComponent<CardProps> = (props) =>{
     const {cardData} = props;
@@ -80,6 +79,46 @@ const Hand: React.FunctionComponent<HandProps> = (props) => {
 }
  const Card: React.FunctionComponent = () => {
     //this is a JSON list of the cards.
+
+     const CARDS = [
+         {
+            "id": 0,
+            "name": "Crane",
+            "type": "main",
+            "point": "light",
+            "image": "path",
+            "month": "January",
+            "flower": "Pine",
+            "jpName": "光",
+            "jpMonth": "一月",
+            "jpFlower": "松",
+         },
+         {
+             "id": 1,
+             "name": "Red Poetry Slip",
+             "type": "secondary",
+             "point": "red poetry",
+             "image": "path",
+             "month": "January",
+             "flower": "Pine",
+             "jpName": "赤短冊",
+             "jpMonth": "一月",
+             "jpFlower": "松",
+         },
+         {
+             "id": 2,
+             "name": "January Dreg",
+             "type": "dreg",
+             "point": "dreg",
+             "image": "path",
+             "month": "January",
+             "flower": "Pine",
+             "jpName": "カス",
+             "jpMonth": "一月",
+             "jpFlower": "松",
+         },
+         ]
+     /*
     const CARDS = [
         {
             "id": 1,
@@ -144,12 +183,16 @@ const Hand: React.FunctionComponent<HandProps> = (props) => {
             }
         }
         ]
+      */
     return (
         <div>
             {CARDS.map((card) => {
                 return (
-                    <div id={card.id}>
+                    <div key={card.id}>
                         <ul>
+                            <li>{card.name}</li>
+                            <li>{card.type}</li>
+                            <li>{card.point}</li>
                             <li>{card.month}</li>
                             <li>{card.flower}</li>
                             <li></li>
@@ -176,8 +219,10 @@ const Game: React.FunctionComponent = () => {
 
     const scoring = (): boolean => {
         if (playerScore > aiScore){
+           // setRound(round++)
             return true;
         } else {
+           // round++
             return false;
         }
     }
