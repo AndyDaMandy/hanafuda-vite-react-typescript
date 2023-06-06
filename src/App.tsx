@@ -216,6 +216,11 @@ const Game: React.FunctionComponent = () => {
     const [playerScore, setPlayerScore] = useState(0);
     const [aiScore, setAiScore] = useState(0);
     const [round, setRound] = useState(1);
+    const [complete, setComplete] = useState(false);
+
+    const testing = () => {
+        setComplete(!complete)
+    }
 
     const scoring = (): boolean => {
         if (playerScore > aiScore){
@@ -237,7 +242,9 @@ const Game: React.FunctionComponent = () => {
             <div>
                 AI Score: {aiScore}
             </div>
+            <div>complete: {String(complete)}</div>
         <Board />
+            <button onClick={testing}>Click me!</button>
         </div>
     )
 }
